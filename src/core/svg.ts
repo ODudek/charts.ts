@@ -126,7 +126,7 @@ export class Svg {
 
     addPopover(popover: Popover, padding: number) {
         this.popover = popover;
-        this.popover.create(this.get('width')!, this.get('x')!, (parseInt(this.get('y')!) - (3 * padding)).toString());
+        this.popover.create(this.get('width')!, this.get('x')!, (parseInt(this.get('y')!) - (2.5 * padding)).toString());
     }
 
     removePopover = (e: any) => {

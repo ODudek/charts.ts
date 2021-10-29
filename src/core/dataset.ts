@@ -21,11 +21,11 @@ export class Dataset {
 
     calculateHeight(height: number) {
         if (height === this.max) {
-            return this.height;
+            return this.height - this.padding;
         }
         console.log('height: ', height, this.max)
         const percent = (height * 100) / this.max;
-        return percent * 0.01 * this.height
+        return parseFloat(((percent * 0.01 * this.height) - this.padding).toFixed(4))
     }
 
     render() {
@@ -35,10 +35,11 @@ export class Dataset {
             const svg = new Svg('rect', this.config.color);
             const popover = new Popover(d.label, d.value, this.rootSvg.parentElement!);
             const height = this.calculateHeight(d.value);
-            svg.set('x', (index * (this.rootSvg.clientWidth / length) + this.padding).toString());
+            console.log('this.rootSvg.clientWidth: ', this.rootSvg.clientWidth);
+            svg.set('x', (index * ((this.rootSvg.clientWidth - this.padding) / length) + this.padding).toString());
             svg.set('y', `${this.height}`);
             svg.set('height', `${height}px`);
-            svg.set('width', `${this.rootSvg.clientWidth / length}px`);
+            svg.set('width', `${(this.rootSvg.clientWidth - this.padding) / length}px`);
             svg.setStyle('transition: 0.5s all;');
             svg.addEventListener('mouseover', (e: any) => {
                 svg.addPopover(popover, this.padding);
