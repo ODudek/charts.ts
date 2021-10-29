@@ -66,7 +66,7 @@ export type ISvg =
     | SVGPolygonElement
     | SVGFEGaussianBlurElement;
 
-type AnimationType = 'height';
+type AnimationType = 'y' | 'height';
 type SetType = Exclude<keyof CSSStyleDeclaration, 'style'> | 'preserveAspectRatio' | 'viewBox' | 'y' | 'x' | 'points';
 
 export class Svg {
@@ -90,7 +90,7 @@ export class Svg {
     animate(key: AnimationType, value: number, interval = 10) {
 
         this.interval = setTimeout(() => {
-            this.set('y', `${value}`);
+            this.set(key, `${value}`);
         }, interval);
     }
 
