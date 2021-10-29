@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Charts demo</title>
+    <link rel="stylesheet" href="../src/styles/index.scss">
+</head>
+<body style="margin: 0;">
+<div style="margin: 10px">
+    <div id="demo" style="position: relative"></div>
+</div>
+<script src="../src/index.ts"></script>
+<script>
+    const options = {
+        datasets: [{
+            color: {
+                border: '#fff',
+                fill: 'lightblue'
+            },
+            min: 0,
+            max: 30,
+            data: [{
+                value: 10,
+                label: 'test 321qfsa fas'
+            }, {
+                value: 20,
+                label: 'test2 fsa saf a'
+            }, {
+                value: 300,
+                label: 'test3 fasfqwf3q4q gerwg'
+            }, {
+                value: 30,
+                label: 'test4 fdsf ds'
+            }, {
+                value: 50,
+                label: 'test5 fewfe33g3qgf'
+            }]
+        }],
+        elementId: 'demo',
+        type: 'bar',
+        options: {
+            height: 500,
+            title: 'test',
+            legend: {
+                position: 'top'
+            },
+            responsive: false
+        },
+    }
+    const chart = new Chart(options)
+</script>
+</body>
+</html>
