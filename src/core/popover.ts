@@ -28,12 +28,7 @@ export class Popover {
 
     destroy() {
         if (this.element) {
-            this.element.style.opacity = '0';
+            this.element.remove();
         }
-        setTimeout(() => {
-            if (this.element) {
-                this.element.remove();
-            }
-        }, 150);
     }
 }
